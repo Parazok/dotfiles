@@ -199,3 +199,7 @@ exec --no-startup-id "setxkbmap -model pc104 -layout us,ir -variant ,, -option g
 
 # make touchbar great again
 exec --no-startup-id synclient VertEdgeScroll=1 HorizEdgeScroll=1 VertTwoFingerScroll=1 HorizTwoFingerScroll=1 TapButton1=1 TapButton2=3 TapButton3=2 ClickFinger1=1 ClickFinger2=3 ClickFinger3=2 TapAndDragGesture=1 HorizScrollDelta=-79 VertScrollDelta=-79
+
+# lock screan
+bindsym Control+Mod1+l exec i3-msg workspace 1 && i3lock -c 111111 -d
+
