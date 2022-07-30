@@ -194,8 +194,8 @@ bindsym $mod+Tab workspace back_and_forth
 exec --no-startup-id nitrogen --restore
 
 # persian keyboard
-exec --no-startup-id "setxkbmap -model pc104 -layout us,ir -variant ,, -option grp:win_space_toggle"
-#exec --no-startup-id "setxkbmap -model pc104 -layout us,ir -variant ,, -option grp:alt_shift_toggle"
+exec --no-startup-id "setxkbmap -model pc103 -layout us,ir -variant ,, -option grp:win_space_toggle"
+#exec --no-startup-id "setxkbmap -model pc103 -layout us,ir -variant ,, -option grp:alt_shift_toggle"
 
 # make touchbar great again
 exec --no-startup-id synclient VertEdgeScroll=1 HorizEdgeScroll=1 VertTwoFingerScroll=1 HorizTwoFingerScroll=1 TapButton1=1 TapButton2=3 TapButton3=2 ClickFinger1=1 ClickFinger2=3 ClickFinger3=2 TapAndDragGesture=1 HorizScrollDelta=-79 VertScrollDelta=-79
@@ -203,3 +203,12 @@ exec --no-startup-id synclient VertEdgeScroll=1 HorizEdgeScroll=1 VertTwoFingerS
 # lock screan
 bindsym Control+Mod1+l exec i3-msg workspace 1 && i3lock -c 111111 -d
 
+# Screenshots
+bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
+bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
+bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date)"
+
+## Clipboard Screenshots
+bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
